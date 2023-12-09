@@ -13,7 +13,9 @@ def generate_car_matrix(df)->pd.DataFrame:
                           where 'id_1' and 'id_2' are used as indices and columns respectively.
     """
     # Write your logic here
-
+    df=pd.read_csv('datasets/dataset-1.csv')
+    pivot_df=df.pivot(index='id_1', columns='id_2', values='car').fillna(0)
+    pivot_df.values[[range(len(pivot_df.index))]*2]=0
     return df
 
 
